@@ -138,3 +138,6 @@ PackageBackups/
 
 # UWP builds
 /UWP/*
+
+# Build
+Torfs_Jules_M1.*
