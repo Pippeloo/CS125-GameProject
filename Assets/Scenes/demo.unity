@@ -1775,6 +1775,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 866411552}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &192732448 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8717648844397121767, guid: cad54794e0416478ebf40bab225f861e,
+    type: 3}
+  m_PrefabInstance: {fileID: 599924519}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &212818574 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 57e6787794c864677921523e8f571933,
@@ -9157,6 +9163,7 @@ MonoBehaviour:
   rootTurnSpeed: 1
   jumpableGroundNormalMaxAngle: 45
   closeToJumpableGround: 0
+  buttonObject: {fileID: 0}
 --- !u!114 &966225177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11979,6 +11986,7 @@ MonoBehaviour:
   rootTurnSpeed: 1.2
   jumpableGroundNormalMaxAngle: 45
   closeToJumpableGround: 1
+  buttonObject: {fileID: 192732448}
 --- !u!136 &1331787735
 CapsuleCollider:
   m_ObjectHideFlags: 0

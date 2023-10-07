@@ -58,6 +58,9 @@ public class RootMotionControlScript : MonoBehaviour
         }
     }
 
+    // Added by Jules
+    public GameObject buttonObject;
+
     void Awake()
     {
 
@@ -147,8 +150,8 @@ public class RootMotionControlScript : MonoBehaviour
                 else
                 {
                     // TODO UNCOMMENT THESE LINES FOR TARGET MATCHING
-                    // Debug.Log("match to button initiated");
-                    // doMatchToButtonPress = true;
+                    Debug.Log("match to button initiated");
+                    doMatchToButtonPress = true;
                 }
 
             }
@@ -156,6 +159,17 @@ public class RootMotionControlScript : MonoBehaviour
 
 
         // TODO HANDLE BUTTON MATCH TARGET HERE
+        // get info about current animation
+        var animState = anim.GetCurrentAnimatorStateInfo(0);
+        // If the transition to button press has been initiated then we want // to correct the character position to the correct place
+        if ( animState.IsName("MatchToButtonPress")
+        && !anim.IsInTransition(0) && !anim.isMatchingTarget ) {
+            if (buttonPressStandingSpot != null) {
+                Debug.Log("Target matching correction started");
+                initalMatchTargetsAnimTime = animState.normalizedTime;
+                var t = buttonPressStandingSpot.transform; anim.MatchTarget(t.position, t.rotation, AvatarTarget.Root, new MatchTargetWeightMask(new Vector3(1f, 0f, 1f), 1f), initalMatchTargetsAnimTime, exitMatchTargetsAnimTime);
+            }
+        }
 
 
 
@@ -229,7 +243,22 @@ public class RootMotionControlScript : MonoBehaviour
         rbody.MoveRotation(newRootRotation);
     }
 
-
-
-
+    void OnAnimatorIK(int layerIndex) {
+        if(anim) {
+            AnimatorStateInfo astate = anim.GetCurrentAnimatorStateInfo(0);
+            if(astate.IsName("ButtonPress")) {
+                float buttonWeight = anim.GetFloat("buttonClose");
+                // Set the look target position, if one has been assigned
+                if(buttonObject != null) {
+                    anim.SetLookAtWeight(buttonWeight);
+                    anim.SetLookAtPosition(buttonObject.transform.position);
+                    anim.SetIKPositionWeight(AvatarIKGoal.RightHand,buttonWeight);
+                    anim.SetIKPosition(AvatarIKGoal.RightHand, buttonObject.transform.position);
+                }
+            } else {
+                anim.SetIKPositionWeight(AvatarIKGoal.RightHand,0);
+                anim.SetLookAtWeight(0);
+            }
+        }
+    }
 }
