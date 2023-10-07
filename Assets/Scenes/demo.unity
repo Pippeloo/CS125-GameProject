@@ -5705,12 +5705,12 @@ PrefabInstance:
     - target: {fileID: 8420804521206458118, guid: 232cc787059764e52812f4a00462db03,
         type: 3}
       propertyPath: lastName
-      value: 
+      value: Torfs
       objectReference: {fileID: 0}
     - target: {fileID: 8420804521206458118, guid: 232cc787059764e52812f4a00462db03,
         type: 3}
       propertyPath: firstInitial
-      value: 
+      value: Jules
       objectReference: {fileID: 0}
     - target: {fileID: 8420804521206458118, guid: 232cc787059764e52812f4a00462db03,
         type: 3}
@@ -9152,6 +9152,9 @@ MonoBehaviour:
   buttonCloseEnoughForPressAngleDegrees: 5
   initalMatchTargetsAnimTime: 0
   exitMatchTargetsAnimTime: 0
+  animationSpeed: 1
+  rootMovementSpeed: 1
+  rootTurnSpeed: 1
   jumpableGroundNormalMaxAngle: 45
   closeToJumpableGround: 0
 --- !u!114 &966225177
@@ -11971,6 +11974,9 @@ MonoBehaviour:
   buttonCloseEnoughForPressAngleDegrees: 5
   initalMatchTargetsAnimTime: 0
   exitMatchTargetsAnimTime: 0
+  animationSpeed: 1.3
+  rootMovementSpeed: 1.2
+  rootTurnSpeed: 1.2
   jumpableGroundNormalMaxAngle: 45
   closeToJumpableGround: 1
 --- !u!136 &1331787735
@@ -14746,6 +14752,7 @@ GameObject:
   - component: {fileID: 1596431979}
   - component: {fileID: 1596431981}
   - component: {fileID: 1596431982}
+  - component: {fileID: 1596431988}
   m_Layer: 14
   m_Name: Minion_RootMotion
   m_TagString: Untagged
@@ -14883,6 +14890,18 @@ Transform:
   - {fileID: 1633992892}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1596431988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596431978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87af4f46323c9441fa6808013199d8b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1599598722
 PrefabInstance:
   m_ObjectHideFlags: 0
